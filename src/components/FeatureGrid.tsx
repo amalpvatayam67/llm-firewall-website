@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Shield, Server, Box, Fingerprint, Activity, Key, Database, Bell, BringToFront, Flame, Settings, Lock, ShieldCheck, PlayCircle } from 'lucide-react';
+import { Shield, Server, Box, Fingerprint, Activity, Key, Database, Bell, BringToFront, Flame, Settings, Lock, ShieldCheck, PlayCircle, GitMerge } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FeatureCard } from './FeatureCard';
 
@@ -12,6 +12,13 @@ const features = [
     icon: Shield,
     color: "from-emerald-400 to-primary",
     delay: 0.1
+  },
+  {
+    title: "Context Resolver",
+    description: "Automatically reconstructs conversation context to detect multi-turn prompt injection and jailbreak attempts. Uses a lightweight in-memory session cache to analyze recent messages without storing sensitive conversation data.",
+    icon: GitMerge,
+    color: "from-teal-400 to-cyan-600",
+    delay: 0.2
   },
   {
     title: "HTTP Tool Proxy",

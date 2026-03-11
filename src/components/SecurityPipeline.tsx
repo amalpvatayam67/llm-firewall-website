@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ShieldAlert, Fingerprint, Brain, Wrench, ShieldCheck, ArrowRight, Server, CheckCircle, Database } from 'lucide-react';
+import { ShieldAlert, Fingerprint, Brain, Wrench, ShieldCheck, ArrowRight, Server, CheckCircle, Database, GitMerge } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useState, useEffect } from 'react';
 
 const pipelineStages = [
   { id: 'gateway', name: 'API Gateway', icon: Server, color: 'text-indigo-400', bg: 'bg-indigo-400/20' },
+  { id: 'context', name: 'Context Resolver', icon: GitMerge, color: 'text-teal-400', bg: 'bg-teal-400/20' },
   { id: 'rule', name: 'Rule Engine', icon: ShieldAlert, color: 'text-rose-400', bg: 'bg-rose-400/20' },
   { id: 'attack', name: 'Attack Scanner', icon: Fingerprint, color: 'text-amber-400', bg: 'bg-amber-400/20' },
   { id: 'semantic', name: 'Semantic Detector', icon: Brain, color: 'text-violet-400', bg: 'bg-violet-400/20' },
