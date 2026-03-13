@@ -1,13 +1,19 @@
 import { Hero } from "@/components/Hero";
 import { FeatureGrid } from "@/components/FeatureGrid";
-import { DashboardPreview } from "@/components/DashboardPreview";
+import { PipelineDiagram } from "@/components/PipelineDiagram";
+import { DashboardShowcase } from "@/components/DashboardShowcase";
+import { TestingShowcase } from "@/components/TestingShowcase";
+import { AdvancedCapabilities } from "@/components/AdvancedCapabilities";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full">
+    <main className="min-h-screen bg-background text-foreground flex flex-col w-full">
       <Hero />
       <FeatureGrid />
-      <DashboardPreview />
-    </div>
+      <PipelineDiagram />
+      <DashboardShowcase />
+      <TestingShowcase />
+      <AdvancedCapabilities />
+    </main>
   );
 }

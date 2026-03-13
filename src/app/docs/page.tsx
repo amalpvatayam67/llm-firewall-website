@@ -1,5 +1,6 @@
 import { Shield, FileText, Code, LayoutDashboard, Settings } from 'lucide-react';
 import Link from 'next/link';
+import { IntegrationExamples } from '@/components/IntegrationExamples';
 
 export default function DocsPage() {
   return (
@@ -17,8 +18,8 @@ export default function DocsPage() {
               <li><a href="#quick-start" className="hover:text-primary transition-colors block py-1">Quick Start</a></li>
               <li><a href="#docker-services" className="hover:text-primary transition-colors block py-1">Docker Services</a></li>
               <li><a href="#env-vars" className="hover:text-primary transition-colors block py-1">Environment Variables</a></li>
-              <li><a href="#dev-workflow" className="hover:text-primary transition-colors block py-1">Development Workflow</a></li>
               <li><a href="#api-usage" className="hover:text-primary transition-colors block py-1">API Usage Examples</a></li>
+              <li><a href="#integration-examples" className="hover:text-primary transition-colors block py-1">Integration Examples</a></li>
               <li><a href="#tornado" className="hover:text-primary transition-colors block py-1">6AI Tornado Config</a></li>
             </ul>
           </div>
@@ -130,6 +131,10 @@ docker compose up -d
                 </tbody>
               </table>
             </div>
+          </section>
+
+          <section id="integration-examples" className="scroll-mt-24">
+            <IntegrationExamples />
           </section>
           
           <section id="api-usage" className="scroll-mt-24">
