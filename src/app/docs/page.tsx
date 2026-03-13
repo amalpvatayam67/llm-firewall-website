@@ -8,7 +8,7 @@ export default function DocsPage() {
       <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row gap-8">
         
         {/* Sidebar */}
-        <aside className="w-full md:w-64 shrink-0 flex flex-col gap-6 sticky top-24 h-max">
+        <aside className="w-full md:w-64 shrink-0 flex flex-col gap-6 md:sticky md:top-24 h-max">
           <div>
             <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
               <FileText size={18} className="text-primary" />
