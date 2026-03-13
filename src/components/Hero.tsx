@@ -47,7 +47,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-foreground/70 max-w-2xl text-balance"
           >
-            A multi-layer security pipeline inspecting every LLM request. Defend against prompt injection, data exfiltration, and malicious tool usage in milliseconds.
+            A runtime security proxy that inspects, redacts, and enforces policy across every LLM request, tool call, and streamed response — before threats reach your infrastructure.
           </motion.p>
 
           <motion.div 
@@ -82,7 +82,7 @@ export function Hero() {
         >
           <div className="text-center mb-6">
             <h3 className="text-sm font-semibold tracking-wider text-foreground/50 uppercase">
-              5-Engine Inspection Pipeline
+              Multi-Layer Detection Pipeline
             </h3>
           </div>
           <SecurityPipeline />

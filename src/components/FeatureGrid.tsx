@@ -8,7 +8,7 @@ import { FeatureCard } from './FeatureCard';
 const features = [
   {
     title: "LLM Firewall Core",
-    description: "5-layer detection engine including Regex, Exact-Match, Semantic Analysis, AI Classification, and Tool Guard.",
+    description: "10-layer detection pipeline including Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, and Risk Aggregator.",
     icon: Shield,
     color: "from-emerald-400 to-primary",
     delay: 0.1
@@ -78,7 +78,7 @@ const features = [
   },
   {
     title: "6AI Tornado Utility",
-    description: "Independent microservice running a 5+1 LLM verification council for deterministic AI consensus.",
+    description: "AI-assisted rule authoring engine built into the dashboard. Proposes rules, explains decisions, and verifies prompts using a multi-model council — without replacing the firewall's deterministic runtime.",
     icon: Flame,
     color: "from-red-400 to-orange-500",
     delay: 0.2
@@ -96,6 +96,27 @@ const features = [
     icon: PlayCircle,
     color: "from-indigo-400 to-cyan-500",
     delay: 0.4
+  },
+  {
+    title: "Streaming Output Scanner",
+    description: "Sliding-window streaming redaction that inspects LLM output token-by-token without buffering the full response. Sensitive patterns are redacted inline as the stream flows.",
+    icon: Activity,
+    color: "from-cyan-400 to-emerald-500",
+    delay: 0.1
+  },
+  {
+    title: "Multimodal Scanner",
+    description: "Extensible scanner for images and files submitted alongside prompts. Detects embedded text via OCR, EXIF metadata anomalies, and QR-encoded payloads.",
+    icon: Box,
+    color: "from-purple-400 to-fuchsia-500",
+    delay: 0.2
+  },
+  {
+    title: "Red Team Simulator",
+    description: "Built-in prompt battery tester. Run curated attack suites against the detection pipeline with no provider cost — measure bypass rates and fine-tune rules before going to production.",
+    icon: TargetIcon,
+    color: "from-rose-400 to-amber-500",
+    delay: 0.3
   }
 ];
 
@@ -115,6 +136,30 @@ function WrenchIcon(props: any) {
       strokeLinejoin="round"
     >
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+    </svg>
+  );
+}
+
+function TargetIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="8" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M22 12h-4" />
+      <path d="M6 12H2" />
+      <path d="M12 2v4" />
+      <path d="M12 18v4" />
     </svg>
   );
 }
