@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldAlert, Fingerprint, Brain, Wrench, ShieldCheck, ArrowRight, Server, CheckCircle, Database, GitMerge } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -15,8 +16,30 @@ const pipelineStages = [
   { id: 'tool', name: 'Tool Guard', icon: Wrench, color: 'text-orange-400', bg: 'bg-orange-400/20' },
   { id: 'aggregator', name: 'Risk Aggregator', icon: ShieldCheck, color: 'text-emerald-400', bg: 'bg-emerald-400/20' },
   { id: 'provider', name: 'LLM Provider', icon: Database, color: 'text-blue-400', bg: 'bg-blue-400/20' },
-  { id: 'output', name: 'Output Scanner', icon: CheckCircle, color: 'text-emerald-500', bg: 'bg-emerald-500/20' }
+  { id: 'output', name: 'Output Scanner', icon: CheckCircle, color: 'text-emerald-500', bg: 'bg-emerald-500/20' },
+  { id: 'pii', name: 'PII Guard', icon: EyeShieldIcon, color: 'text-teal-300', bg: 'bg-teal-400/20' }
 ];
+
+function EyeShieldIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M2.5 9.5C4.5 11.5 7.5 13 12 13s7.5-1.5 9.5-3.5" />
+      <circle cx="12" cy="10" r="2" />
+    </svg>
+  );
+}
 
 export function SecurityPipeline() {
   const [activeStage, setActiveStage] = useState(0);
@@ -39,8 +62,22 @@ export function SecurityPipeline() {
             const isPast = index < activeStage;
             const Icon = stage.icon;
 
+            const tooltips: Record<string, string> = {
+              gateway: 'Normalizes and routes incoming requests',
+              context: 'Reconstructs multi-turn context to catch chained jailbreaks',
+              rule: 'Regex & pattern-based threat rules',
+              attack: 'Curated prompt attack dataset matching',
+              semantic: 'Embedding similarity against known bad prompts',
+              classifier: 'LLM-based nuanced policy classifier',
+              tool: 'Intercepts and scores LLM tool invocations',
+              aggregator: 'Combines engine scores into a single risk posture',
+              provider: 'Forwards safe traffic to configured LLM providers',
+              output: 'Post-response scan for secrets and unsafe content',
+              pii: 'Bidirectional PII enforcement — detect, mask, or block sensitive data in both inputs and outputs',
+            };
+
             return (
-              <div key={stage.id} className="relative flex flex-col items-center">
+              <div key={stage.id} className="relative flex flex-col items-center" title={tooltips[stage.id]}>
                 <motion.div
                   animate={{
                     scale: isActive ? 1.1 : 1,

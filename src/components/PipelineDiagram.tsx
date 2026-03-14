@@ -2,6 +2,28 @@
 
 import { motion } from "framer-motion";
 import { ShieldAlert, Brain, Fingerprint, Wrench, ScanLine, Layers3, ArrowRight, Radar } from "lucide-react";
+import React from "react";
+
+function EyeShieldIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M2.5 9.5C4.5 11.5 7.5 13 12 13s7.5-1.5 9.5-3.5" />
+      <circle cx="12" cy="10" r="2" />
+    </svg>
+  );
+}
 
 const promptEngines = [
   {
@@ -31,6 +53,11 @@ const outputEngines = [
     name: "Output Scanner",
     description: "Post-response scan for secrets, PII, and unsafe content.",
     icon: ScanLine,
+  },
+  {
+    name: "PII Guard",
+    description: "Bidirectional PII enforcement layer with detect, mask, and block modes. Runs on both input and output with per-project type filtering.",
+    icon: EyeShieldIcon,
   },
   {
     name: "Streaming Output Scanner",

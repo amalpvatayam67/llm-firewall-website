@@ -10,9 +10,10 @@ interface FeatureCardProps {
   icon: ElementType;
   color: string;
   delay?: number;
+  badge?: string;
 }
 
-export function FeatureCard({ title, description, icon: Icon, color, delay = 0 }: FeatureCardProps) {
+export function FeatureCard({ title, description, icon: Icon, color, delay = 0, badge }: FeatureCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -33,10 +34,17 @@ export function FeatureCard({ title, description, icon: Icon, color, delay = 0 }
       )}>
         <Icon className="w-6 h-6 text-white" />
       </div>
-      
-      <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-        {title}
-      </h3>
+
+      <div className="flex items-center gap-2 mb-3 flex-wrap">
+        <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+          {title}
+        </h3>
+        {badge && (
+          <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase border border-teal-400/40 bg-teal-400/10 text-teal-300">
+            {badge}
+          </span>
+        )}
+      </div>
       
       <p className="text-sm text-foreground/60 leading-relaxed font-medium">
         {description}

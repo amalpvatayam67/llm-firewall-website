@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Server, Box, Fingerprint, Activity, Key, Database, Bell, BringToFront, Flame, Settings, Lock, ShieldCheck, PlayCircle, GitMerge } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -8,7 +9,7 @@ import { FeatureCard } from './FeatureCard';
 const features = [
   {
     title: "LLM Firewall Core",
-    description: "10-layer detection pipeline including Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, and Risk Aggregator.",
+    description: "11-layer detection pipeline including Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, Risk Aggregator, and PII Guard.",
     icon: Shield,
     color: "from-emerald-400 to-primary",
     delay: 0.1
@@ -112,6 +113,14 @@ const features = [
     delay: 0.2
   },
   {
+    title: "PII Guard",
+    description: "Bidirectional PII enforcement — scan both user inputs and LLM outputs for SSNs, credit cards, emails, API keys, and more. Three enforcement modes: detect (log only), mask (redact inline), or block (reject the request). Per-project overrides let you configure different PII policies for each API key.",
+    icon: EyeShieldIcon,
+    color: "from-teal-400 to-cyan-500",
+    delay: 0.4,
+    badge: "Privacy"
+  },
+  {
     title: "Red Team Simulator",
     description: "Built-in prompt battery tester. Run curated attack suites against the detection pipeline with no provider cost — measure bypass rates and fine-tune rules before going to production.",
     icon: TargetIcon,
@@ -160,6 +169,27 @@ function TargetIcon(props: any) {
       <path d="M6 12H2" />
       <path d="M12 2v4" />
       <path d="M12 18v4" />
+    </svg>
+  );
+}
+
+function EyeShieldIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="M2.5 9.5C4.5 11.5 7.5 13 12 13s7.5-1.5 9.5-3.5" />
+      <circle cx="12" cy="10" r="2" />
     </svg>
   );
 }
