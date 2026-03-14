@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Server, Box, Fingerprint, Activity, Key, Database, Bell, BringToFront, Flame, Settings, Lock, ShieldCheck, PlayCircle, GitMerge } from 'lucide-react';
+import { Shield, Server, Box, Fingerprint, Activity, Key, Database, Bell, BringToFront, Flame, Settings, Lock, ShieldCheck, PlayCircle, GitMerge, Network } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FeatureCard } from './FeatureCard';
 
 const features = [
   {
     title: "LLM Firewall Core",
-    description: "11-layer detection pipeline including Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, Risk Aggregator, and PII Guard.",
+    description: "11-layer detection pipeline including Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, Risk Aggregator, and PII Guard. Runs horizontally across multiple replicas with optional Redis-backed shared state.",
     icon: Shield,
     color: "from-emerald-400 to-primary",
     delay: 0.1
@@ -92,6 +92,14 @@ const features = [
     delay: 0.3
   },
   {
+    title: "Horizontal Scaling",
+    description: "Run multiple firewall replicas with shared state. Plug in Redis for distributed rate-limit counters and session cache across all nodes — or stay single-node with zero configuration. Switch modes with one environment variable.",
+    icon: Network,
+    color: "from-cyan-400 to-teal-500",
+    delay: 0.4,
+    badge: "Scale"
+  },
+  {
     title: "Request Visualizer",
     description: "Trace specific requests layer-by-layer to see exactly why it was flagged or allowed.",
     icon: PlayCircle,
@@ -107,7 +115,7 @@ const features = [
   },
   {
     title: "Multimodal Scanner",
-    description: "Extensible scanner for images and files submitted alongside prompts. Detects embedded text via OCR, EXIF metadata anomalies, and QR-encoded payloads.",
+    description: "Scans images and files submitted alongside prompts. Detects embedded text via OCR, extracts and validates EXIF metadata anomalies, and decodes QR-encoded payloads — catching steganographic and image-injection attack vectors.",
     icon: Box,
     color: "from-purple-400 to-fuchsia-500",
     delay: 0.2

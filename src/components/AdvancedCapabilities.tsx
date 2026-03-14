@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TerminalSquare, Bell, Share2, Activity, Network, Cpu } from "lucide-react";
+import { TerminalSquare, Bell, Share2, Activity, Network, Cpu, Zap } from "lucide-react";
 
 export function AdvancedCapabilities() {
   return (
@@ -29,7 +29,7 @@ export function AdvancedCapabilities() {
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -141,6 +141,52 @@ export function AdvancedCapabilities() {
                   Tornado proposes rules and explanations; enforcement and
                   telemetry stay in the firewall runtime.
                 </span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            className="glass rounded-2xl border border-white/10 p-6 space-y-4"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300">
+                <Zap className="w-4 h-4" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold">Production-Ready Performance</p>
+                <p className="text-xs text-foreground/60">
+                  Dedicated thread pool keeps the event loop free under load.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-3 text-xs text-foreground/70">
+              <p className="text-foreground/60">
+                CPU-intensive scanning — prompt analysis, PII detection, output scanning — runs on a
+                dedicated named thread pool, keeping the async event loop free for I/O. Observable
+                in the diagnostics dashboard under <span className="font-mono text-cyan-300">Security Executor</span>.
+              </p>
+              <div className="rounded-xl bg-black/50 border border-white/10 p-3 space-y-2">
+                <div className="flex items-center justify-between text-[11px]">
+                  <span className="text-foreground/60 flex items-center gap-1">
+                    <Cpu className="w-3 h-3" /> Thread Pool
+                  </span>
+                  <span className="font-mono text-cyan-300">16 workers dedicated</span>
+                </div>
+                <div className="h-1.5 rounded-full bg-black/50 overflow-hidden">
+                  <div className="h-full w-full bg-gradient-to-r from-cyan-500 to-teal-400" />
+                </div>
+                <div className="flex items-center justify-between text-[11px]">
+                  <span className="text-foreground/60 flex items-center gap-1">
+                    <Zap className="w-3 h-3" /> Event Loop
+                  </span>
+                  <span className="font-mono text-emerald-300">Never blocked by scan work</span>
+                </div>
+                <div className="h-1.5 rounded-full bg-black/50 overflow-hidden">
+                  <div className="h-full w-1/12 bg-emerald-400" />
+                </div>
               </div>
             </div>
           </motion.div>

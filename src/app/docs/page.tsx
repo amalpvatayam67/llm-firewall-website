@@ -103,6 +103,16 @@ docker compose up -d
                     <td className="py-3 px-4">8100</td>
                     <td className="py-3 px-4">Named volume <code>(tornado_data)</code></td>
                   </tr>
+                  <tr>
+                    <td className="py-3 px-4 font-mono text-cyan-400">redis</td>
+                    <td className="py-3 px-4">llm-firewall-redis</td>
+                    <td className="py-3 px-4">6379</td>
+                    <td className="py-3 px-4">
+                      Optional. Start with{" "}
+                      <code className="text-cyan-300">--profile distributed</code>. Only needed for
+                      multi-node deployments.
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -128,6 +138,9 @@ docker compose up -d
                   <tr><td className="py-2 px-4 text-emerald-400">OPENAI_API_KEY</td><td className="py-2 px-4">(none)</td><td className="py-2 px-4 font-sans">OpenAI API key</td></tr>
                   <tr><td className="py-2 px-4 text-emerald-400">ENABLE_TOOL_PROXY</td><td className="py-2 px-4">false</td><td className="py-2 px-4 font-sans">Enable Tool Proxy subsystem</td></tr>
                   <tr><td className="py-2 px-4 text-emerald-400">ENABLE_RAG_DETECTOR</td><td className="py-2 px-4">true</td><td className="py-2 px-4 font-sans">Enable RAG poisoning detection</td></tr>
+                  <tr><td className="py-2 px-4 text-cyan-400">STATE_BACKEND</td><td className="py-2 px-4">memory</td><td className="py-2 px-4 font-sans">Set to <code className="text-cyan-300">redis</code> to enable distributed state across replicas</td></tr>
+                  <tr><td className="py-2 px-4 text-cyan-400">REDIS_URL</td><td className="py-2 px-4 text-foreground/60">redis://localhost:6379/0</td><td className="py-2 px-4 font-sans">Redis connection URL (only used when <code className="text-cyan-300">STATE_BACKEND=redis</code>)</td></tr>
+                  <tr><td className="py-2 px-4 text-cyan-400">SECURITY_EXECUTOR_MAX_WORKERS</td><td className="py-2 px-4">16</td><td className="py-2 px-4 font-sans">Thread pool size for CPU-bound security scanning work</td></tr>
                 </tbody>
               </table>
             </div>
