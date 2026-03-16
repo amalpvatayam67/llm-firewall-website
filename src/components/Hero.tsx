@@ -5,8 +5,16 @@ import { SecurityPipeline } from './SecurityPipeline';
 import { PixelAgents } from './PixelAgents';
 import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useSubscriberAuth } from '@/auth/SubscriberAuthContext';
 
 export function Hero() {
+  const router = useRouter();
+  const { isLoggedIn } = useSubscriberAuth();
+
+  function handleGetStarted() {
+    router.push(isLoggedIn ? '/subscriber/profile' : '/subscriber/register');
+  }
   return (
     <section className="relative min-h-[90vh] flex flex-col justify-center pt-24 pb-12 overflow-hidden">
       {/* Background Pixel Agents (behind everything) */}
@@ -56,13 +64,13 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 pt-4"
           >
-            <Link 
-              href="#get-started"
+            <button
+              onClick={handleGetStarted}
               className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-background shadow-lg shadow-primary/25 transition-all hover:bg-primary-dark hover:scale-105"
             >
               Start Protecting Now
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </button>
             <Link 
               href="/#architecture"
               className="inline-flex h-12 items-center justify-center rounded-lg glass border-white/10 px-8 text-sm font-medium text-foreground transition-all hover:bg-white/5"
