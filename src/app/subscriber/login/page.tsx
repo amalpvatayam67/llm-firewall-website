@@ -164,28 +164,18 @@ export default function SubscriberLoginPage() {
           <div className="grid grid-cols-2 gap-3">
             <button
               type="button"
-              onClick={() => handleOAuth('google')}
-              disabled={oauthLoading !== null}
-              className="flex items-center justify-center gap-2 h-10 rounded-lg bg-surface border border-white/10 text-sm font-medium text-foreground/80 hover:bg-surface-hover hover:border-white/20 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled
+              className="flex items-center justify-center gap-2 h-10 rounded-lg bg-surface border border-white/10 text-sm font-medium text-foreground/30 opacity-40 cursor-not-allowed select-none"
             >
-              {oauthLoading === 'google' ? (
-                <Loader2 size={15} className="animate-spin" />
-              ) : (
-                <GoogleIcon />
-              )}
+              <GoogleIcon />
               Google
             </button>
             <button
               type="button"
-              onClick={() => handleOAuth('github')}
-              disabled={oauthLoading !== null}
-              className="flex items-center justify-center gap-2 h-10 rounded-lg bg-surface border border-white/10 text-sm font-medium text-foreground/80 hover:bg-surface-hover hover:border-white/20 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled
+              className="flex items-center justify-center gap-2 h-10 rounded-lg bg-surface border border-white/10 text-sm font-medium text-foreground/30 opacity-40 cursor-not-allowed select-none"
             >
-              {oauthLoading === 'github' ? (
-                <Loader2 size={15} className="animate-spin" />
-              ) : (
-                <GitHubIcon />
-              )}
+              <GitHubIcon />
               GitHub
             </button>
           </div>
