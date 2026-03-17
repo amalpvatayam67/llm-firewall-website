@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LLM Firewall - Secure AI Applications",
+  title: "LaroGuard - Secure AI Applications",
   description: "A multi-layer security pipeline that inspects every LLM chat request before it reaches the AI provider, and scans the response before it returns to the user.",
 };
 

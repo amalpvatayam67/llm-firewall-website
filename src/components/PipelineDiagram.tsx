@@ -355,7 +355,7 @@ function DeploymentArchitecture() {
           <svg viewBox="0 0 320 110" className="w-full" aria-label="Single-node deployment diagram">
             {/* Firewall box */}
             <rect x="10" y="30" width="110" height="50" rx="10" className="fill-primary/15 stroke-primary/50" strokeWidth="1.5" />
-            <text x="65" y="51" textAnchor="middle" className="fill-current text-foreground" style={{fontSize: 10, fill: "rgba(255,255,255,0.85)", fontWeight: 600}}>LLM Firewall</text>
+            <text x="65" y="51" textAnchor="middle" className="fill-current text-foreground" style={{fontSize: 10, fill: "rgba(255,255,255,0.85)", fontWeight: 600}}>LaroGuard</text>
             <text x="65" y="66" textAnchor="middle" style={{fontSize: 8, fill: "rgba(255,255,255,0.45)"}}>in-memory state</text>
             {/* Arrow */}
             <line x1="120" y1="55" x2="195" y2="55" stroke="rgba(16,185,129,0.5)" strokeWidth="1.5" strokeDasharray="4 3" />

@@ -284,7 +284,7 @@ export default function PricingPage() {
                   {/* CTA button */}
                   {isEnterprise ? (
                     <a
-                      href="mailto:sales@llmfirewall.com"
+                      href="mailto:sales@laroguard.com"
                       className="flex items-center justify-center gap-2 h-11 rounded-lg bg-warning text-gray-900 text-sm font-semibold hover:bg-amber-400 transition-colors mb-6"
                     >
                       <Mail size={15} />

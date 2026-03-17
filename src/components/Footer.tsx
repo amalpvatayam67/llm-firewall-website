@@ -26,13 +26,13 @@ export function Footer() {
           <h3 className="font-semibold text-foreground">Resources</h3>
           <Link href="/docs" className="text-sm text-foreground/60 hover:text-primary">Documentation</Link>
           <Link href="/docs#deployment" className="text-sm text-foreground/60 hover:text-primary">Deployment Guide</Link>
-          <a href="https://github.com/your-username/llm-firewall" target="_blank" rel="noreferrer" className="text-sm text-foreground/60 hover:text-primary">GitHub</a>
+          <a href="https://github.com/your-username/laroguard" target="_blank" rel="noreferrer" className="text-sm text-foreground/60 hover:text-primary">GitHub</a>
         </div>
       </div>
       
       <div className="container mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-xs text-foreground/50">
-          © {new Date().getFullYear()} LLM Firewall. All rights reserved.
+          © {new Date().getFullYear()} LaroGuard. All rights reserved.
         </p>
         <div className="flex gap-4">
           <Link href="#" className="text-xs text-foreground/50 hover:text-primary">Privacy Policy</Link>

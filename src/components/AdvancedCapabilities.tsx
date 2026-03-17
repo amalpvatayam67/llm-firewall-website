@@ -23,7 +23,7 @@ export function AdvancedCapabilities() {
             transition={{ delay: 0.1 }}
             className="text-foreground/70 text-lg"
           >
-            LLM Firewall runs as a runtime proxy in front of both LLMs and
+            LaroGuard runs as a runtime proxy in front of both LLMs and
             tools, with dedicated controls for tool invocations, alerting, SIEM
             export, and AI-assisted rule creation via 6AI Tornado.
           </motion.p>

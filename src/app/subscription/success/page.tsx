@@ -50,7 +50,7 @@ export default function SubscriptionSuccessPage() {
               Payment successful! 🎉
             </h1>
             <p className="text-foreground/60">
-              Your subscription is now active. Welcome to LLM Firewall.
+              Your subscription is now active. Welcome to LaroGuard.
             </p>
           </div>
 

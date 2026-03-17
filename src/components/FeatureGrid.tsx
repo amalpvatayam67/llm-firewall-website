@@ -79,7 +79,7 @@ const capabilityGroups = [
     categoryBg: 'bg-emerald-400/8',
     features: [
       {
-        title: 'LLM Firewall Core',
+        title: 'LaroGuard Core',
         description:
           '11-layer detection pipeline: Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, Risk Aggregator, and PII Guard.',
         icon: Shield,
@@ -439,7 +439,7 @@ export function FeatureGrid() {
             >
               Security Objectives of the{' '}
               <span className="text-gradient bg-gradient-to-r from-primary via-emerald-400 to-cyan-400">
-                LLM Firewall
+                LaroGuard
               </span>
             </motion.h2>
             <motion.p
@@ -508,7 +508,7 @@ export function FeatureGrid() {
               transition={{ delay: 0.1 }}
               className="text-foreground/60 text-lg"
             >
-              Security capabilities powering the LLM Firewall detection and
+              Security capabilities powering the LaroGuard detection and
               protection pipeline.
             </motion.p>
           </div>

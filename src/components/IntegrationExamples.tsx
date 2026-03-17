@@ -77,7 +77,7 @@ export function IntegrationExamples() {
           <div className="text-[11px] space-y-1">
             <p>
               <span className="text-primary">App</span> →
-              <span className="text-foreground/80"> LLM Firewall</span> →
+              <span className="text-foreground/80"> LaroGuard</span> →
               <span className="text-cyan-300"> Provider / Tool</span>
             </p>
             <p className="text-foreground/60">

@@ -78,7 +78,7 @@ export function NavBar() {
           >
             <Shield size={20} className="group-hover:text-primary-dark transition-colors" />
           </motion.div>
-          <span className="font-bold text-lg tracking-tight">LLM<span className="text-primary">Firewall</span></span>
+          <span className="font-bold text-lg tracking-tight">Laro<span className="text-primary">Guard</span></span>
         </Link>
 
         {/* Desktop nav */}
