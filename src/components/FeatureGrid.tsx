@@ -16,7 +16,7 @@ const securityObjectives = [
   {
     title: 'AI Governance',
     description:
-      'Define and enforce policies controlling how models, prompts, and tool integrations are used across projects and environments. Per-project API keys let you scope detection rules, PII policies, and rate limits independently.',
+      'Set and enforce policies that control how AI models are used across your projects and teams. Each project operates under its own independent ruleset, giving you precise control over what is allowed and what is not.',
     icon: ShieldAlert,
     color: 'from-violet-400 to-purple-600',
     accent: 'border-violet-500/30 bg-violet-500/5',
@@ -25,7 +25,7 @@ const securityObjectives = [
   {
     title: 'Risk Management',
     description:
-      'Identify and mitigate risks such as prompt injection, model abuse, tool misuse, and unsafe agent execution. The Risk Aggregator scores each request across all pipeline layers before forwarding.',
+      'Identify and contain risks in every AI interaction before they reach your systems. Each request is evaluated across multiple dimensions and assigned a risk score, enabling consistent enforcement of your security thresholds.',
     icon: AlertTriangle,
     color: 'from-amber-400 to-orange-500',
     accent: 'border-amber-500/30 bg-amber-500/5',
@@ -34,7 +34,7 @@ const securityObjectives = [
   {
     title: 'Threat Detection',
     description:
-      'Continuously analyze prompts, outputs, and retrieved context to detect malicious patterns and abnormal model interactions. Multi-turn context reconstruction catches jailbreaks that span several conversation turns.',
+      'Continuously screen all AI interactions for signs of manipulation, abuse, or policy violations. LaroGuard monitors both individual requests and conversational patterns to catch threats that evolve across multiple turns.',
     icon: Fingerprint,
     color: 'from-rose-400 to-red-600',
     accent: 'border-rose-500/30 bg-rose-500/5',
@@ -43,7 +43,7 @@ const securityObjectives = [
   {
     title: 'Data Protection',
     description:
-      'Prevent leakage of sensitive information including credentials, API keys, and personal data within prompts or responses. Streaming redaction removes sensitive tokens inline — no buffering required.',
+      'Prevent sensitive information from entering or leaving your AI systems. LaroGuard screens both what users send and what models return, ensuring confidential data stays protected throughout every interaction.',
     icon: Lock,
     color: 'from-cyan-400 to-blue-600',
     accent: 'border-cyan-500/30 bg-cyan-500/5',
@@ -52,7 +52,7 @@ const securityObjectives = [
   {
     title: 'Security Monitoring',
     description:
-      'Real-time visibility into AI traffic, threat activity, and security posture across deployed LLM systems. Live traffic timelines, latency histograms, and threat distribution charts surface in the SOC Dashboard instantly.',
+      'Get real-time visibility into your AI traffic, security decisions, and risk trends. The built-in dashboard surfaces what matters immediately so your team always has an accurate picture of your AI security posture.',
     icon: BarChart3,
     color: 'from-emerald-400 to-teal-600',
     accent: 'border-emerald-500/30 bg-emerald-500/5',
@@ -61,7 +61,7 @@ const securityObjectives = [
   {
     title: 'Privacy Enforcement',
     description:
-      'Apply privacy controls to detect and redact PII in both user input and model output streams. Three enforcement modes — detect, mask, or block — with per-project overrides for SSNs, credit cards, emails, and API keys.',
+      'Apply privacy controls to both user inputs and model outputs. Choose how LaroGuard responds when personal data is detected — log it, redact it, or block the request entirely — with independent settings per project.',
     icon: Eye,
     color: 'from-teal-400 to-cyan-500',
     accent: 'border-teal-500/30 bg-teal-500/5',
@@ -81,7 +81,7 @@ const capabilityGroups = [
       {
         title: 'LaroGuard Core',
         description:
-          '11-layer detection pipeline: Rule Engine, Prompt Attack Scanner, Semantic Detector, AI Classifier, Output Scanner, Streaming Output Scanner, Multimodal Scanner, RAG Detector, Tool Guard, Risk Aggregator, and PII Guard.',
+          'A multi-layer detection engine that evaluates every AI request across several independent protection modules simultaneously, combining their signals into a single risk decision before any response is returned.',
         icon: Shield,
         color: 'from-emerald-400 to-primary',
         delay: 0.05,
@@ -89,7 +89,7 @@ const capabilityGroups = [
       {
         title: 'Streaming Output Scanner',
         description:
-          'Sliding-window streaming redaction that inspects LLM output token-by-token without buffering the full response. Sensitive patterns are redacted inline as the stream flows.',
+          'Inspects model responses as they are generated, applying protection rules in real time without waiting for the full output. Sensitive content is handled inline so your users never see it.',
         icon: Activity,
         color: 'from-cyan-400 to-emerald-500',
         delay: 0.1,
@@ -97,7 +97,7 @@ const capabilityGroups = [
       {
         title: 'Multimodal Scanner',
         description:
-          'Scans images and files submitted alongside prompts. Detects embedded text via OCR, extracts EXIF metadata anomalies, and decodes QR-encoded payloads — catching steganographic and image-injection attack vectors.',
+          'Extends protection beyond text to cover images and files submitted alongside prompts. Analyzes visual content for embedded threats and policy violations before they reach your AI system.',
         icon: Box,
         color: 'from-purple-400 to-fuchsia-500',
         delay: 0.15,
@@ -105,7 +105,7 @@ const capabilityGroups = [
       {
         title: 'PII Guard',
         description:
-          'Bidirectional PII enforcement on inputs and outputs. Three modes: detect (log only), mask (redact inline), or block (reject). Per-project overrides let you configure different PII policies for each API key.',
+          'Screens both what users send and what models return for personally identifiable information. Configure the response per project — log, redact, or block — independently for inputs and outputs.',
         icon: EyeShieldIcon,
         color: 'from-teal-400 to-cyan-500',
         delay: 0.2,
@@ -122,7 +122,7 @@ const capabilityGroups = [
       {
         title: 'Context Resolver',
         description:
-          'Automatically reconstructs conversation context to detect multi-turn prompt injection and jailbreak attempts. Uses a lightweight in-memory session cache to analyze recent messages without storing sensitive data.',
+          'Tracks the flow of a conversation to detect attacks that unfold across multiple turns rather than a single message. Identifies manipulation attempts that would be invisible when looking at any one message in isolation.',
         icon: GitMerge,
         color: 'from-teal-400 to-cyan-600',
         delay: 0.05,
@@ -130,7 +130,7 @@ const capabilityGroups = [
       {
         title: 'RAG Poisoning Detector',
         description:
-          'Scan documents retrieved from vector DBs before they hit the LLM. Detects embedded prompt injections and adversarial payloads hiding inside retrieved context chunks.',
+          'Screens external content retrieved to augment AI responses before it is included in the model context. Catches adversarial material that could redirect or manipulate the AI through its own knowledge sources.',
         icon: Fingerprint,
         color: 'from-rose-400 to-red-500',
         delay: 0.1,
@@ -146,7 +146,7 @@ const capabilityGroups = [
       {
         title: 'HTTP Tool Proxy',
         description:
-          'Intercept, analyze, and block dangerous LLM tool invocations before they execute on your infrastructure. Every tool call passes through policy enforcement before reaching external services.',
+          'Sits between your AI agents and the tools they are allowed to use. Every tool invocation is reviewed against your security policy before it executes, preventing AI-driven actions your policy does not permit.',
         icon: WrenchIcon,
         color: 'from-orange-400 to-orange-600',
         delay: 0.05,
@@ -154,7 +154,7 @@ const capabilityGroups = [
       {
         title: 'Multi-Provider Gateway',
         description:
-          'Unified OpenAI-compatible API gateway routing to OpenAI, Anthropic, Gemini, OpenRouter, Ollama, and Azure. Switch providers without changing application code.',
+          'A single integration point that works with all major AI providers. Connect once and route traffic to whichever provider each project is configured to use — no changes to your application required.',
         icon: Server,
         color: 'from-blue-400 to-indigo-500',
         delay: 0.1,
@@ -162,7 +162,7 @@ const capabilityGroups = [
       {
         title: 'Horizontal Scaling',
         description:
-          'Run multiple firewall replicas with shared state. Plug in Redis for distributed rate-limit counters and session cache across all nodes — or stay single-node with zero configuration.',
+          'Deploy as a single node or scale across multiple instances as your traffic grows. Shared state is handled automatically so all replicas enforce the same policies consistently.',
         icon: Network,
         color: 'from-cyan-400 to-teal-500',
         delay: 0.15,
@@ -179,7 +179,7 @@ const capabilityGroups = [
       {
         title: 'Real-Time SOC Dashboard',
         description:
-          'React/TypeScript UI with live traffic timelines, latency stats, and threat distribution charts. Built for security teams who need instant situational awareness across deployed LLM systems.',
+          'A live operations view that gives your security team instant visibility into AI traffic, active threats, and system health. Everything your team needs to monitor and respond is in one place.',
         icon: Activity,
         color: 'from-cyan-400 to-blue-500',
         delay: 0.05,
@@ -187,7 +187,7 @@ const capabilityGroups = [
       {
         title: 'Request Visualizer',
         description:
-          'Trace specific requests layer-by-layer to see exactly which pipeline stage flagged or allowed the request. Full inspection of scores, matched rules, and risk aggregation output.',
+          'Drill into any individual request to understand exactly what LaroGuard detected and why it made the decision it did. Useful for tuning your policies and investigating flagged events.',
         icon: PlayCircle,
         color: 'from-indigo-400 to-cyan-500',
         delay: 0.1,
@@ -195,7 +195,7 @@ const capabilityGroups = [
       {
         title: 'Alert Engine',
         description:
-          'Real-time notifications via Email, Slack, and Webhooks when critical threats are detected. Configurable severity thresholds and per-project routing rules.',
+          'Sends real-time notifications to your team when threats are detected. Configure which severity levels trigger alerts, which channels receive them, and which projects they apply to.',
         icon: Bell,
         color: 'from-yellow-400 to-amber-500',
         delay: 0.15,
@@ -203,7 +203,7 @@ const capabilityGroups = [
       {
         title: 'SIEM Integration',
         description:
-          'Async export of firewall events to Webhooks, Syslog, and Splunk HEC automatically. Every detection event is schema-normalized and ready for correlation in your SIEM.',
+          'Forwards security events to your existing monitoring and alerting infrastructure automatically. All events are structured for immediate ingestion without additional transformation.',
         icon: BringToFront,
         color: 'from-teal-400 to-emerald-500',
         delay: 0.2,
@@ -211,7 +211,7 @@ const capabilityGroups = [
       {
         title: 'Red Team Simulator',
         description:
-          'Built-in prompt battery tester. Run curated attack suites against the detection pipeline with no provider cost — measure bypass rates and fine-tune rules before going to production.',
+          'Test your security policies against adversarial inputs before they appear in production traffic. Validate your configuration and adjust thresholds with confidence before going live.',
         icon: TargetIcon,
         color: 'from-rose-400 to-amber-500',
         delay: 0.25,
@@ -219,7 +219,7 @@ const capabilityGroups = [
       {
         title: 'Project & Key Rules',
         description:
-          'Multi-tenant project isolation. Generate API keys per project and track precise per-key traffic analytics, rule overrides, and independent PII policies.',
+          'Each project gets its own API key, its own policy settings, and its own traffic analytics. Isolate applications from one another and manage access without shared configuration.',
         icon: Key,
         color: 'from-violet-400 to-purple-600',
         delay: 0.3,
@@ -227,7 +227,7 @@ const capabilityGroups = [
       {
         title: 'Regex & Semantic Rules',
         description:
-          'CRUD interface for custom detection rules and curated prompt attack datasets. JSON import/export for rule versioning and promotion across environments.',
+          'Define custom detection rules tailored to your application and use case. Rules can be created, updated, and promoted across environments through the dashboard without any code changes.',
         icon: Database,
         color: 'from-fuchsia-400 to-pink-500',
         delay: 0.35,
@@ -235,7 +235,7 @@ const capabilityGroups = [
       {
         title: 'Live Configuration',
         description:
-          'Update detection thresholds, active proxies, and provider routing via UI without restarting the system. Changes propagate instantly across all replicas.',
+          'Adjust policies, thresholds, and routing settings through the dashboard at any time. Updates take effect immediately across your deployment with no downtime or restart required.',
         icon: Settings,
         color: 'from-gray-400 to-slate-500',
         delay: 0.4,

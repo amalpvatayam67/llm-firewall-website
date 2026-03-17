@@ -28,9 +28,9 @@ export function TestingShowcase() {
             transition={{ delay: 0.1 }}
             className="text-foreground/70 text-lg"
           >
-            Use Red Team Simulator for offline prompt evaluation or Streaming
-            Output Scanner for live, provider-backed testing with sliding-window
-            redaction.
+            Use the Red Team Simulator to validate your policies against adversarial
+            inputs, or the Streaming Output Scanner to see protection working live
+            against real model responses.
           </motion.p>
         </div>
 
@@ -114,13 +114,13 @@ function RedTeamPanel() {
             Attack Suites
           </p>
           <div className="space-y-1 max-h-40 overflow-hidden">
-            {["instruction_override", "role_play_jailbreak", "sql_injection", "command_injection", "xxe_injection"].map(
+            {["Instruction override", "Role-play manipulation", "Data extraction", "Injection patterns", "Context abuse"].map(
               (name) => (
                 <div
                   key={name}
                   className="flex items-center justify-between rounded-lg bg-black/50 border border-white/10 px-3 py-1.5"
                 >
-                  <span className="font-mono text-[11px] text-foreground/80">
+                  <span className="text-[11px] text-foreground/80">
                     {name}
                   </span>
                   <span className="text-[10px] text-foreground/50">+1</span>
@@ -147,7 +147,7 @@ function StreamingPanel() {
         <div>
           <p className="text-sm font-semibold">Streaming Output Scanner</p>
           <p className="text-xs text-foreground/60">
-            Real-time token stream scanning with sliding-window redaction.
+            Real-time protection applied to model responses as they stream.
           </p>
         </div>
         <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/40">
@@ -192,8 +192,8 @@ function StreamingPanel() {
               Live Output
             </p>
             <p className="text-[11px] text-foreground/60">
-              Streaming output is scanned in windows of the last 512 characters so
-              no sensitive span can slip across chunk boundaries.
+              Responses are screened continuously as they stream, so sensitive
+              content is caught and handled before it reaches your users.
             </p>
           </div>
         </div>
@@ -239,15 +239,15 @@ function TestingDetails({ mode }: { mode: TestingMode }) {
             <li className="flex gap-2">
               <ListChecks className="w-3.5 h-3.5 text-primary mt-0.5" />
               <span>
-                Curated attack suites for instruction override, role-play jailbreaks,
-                data exfiltration, SQL injection, XXE, and more.
+                Built-in attack suites cover the most common categories of adversarial
+                AI input. Run them against your live policy to measure coverage before going live.
               </span>
             </li>
             <li className="flex gap-2">
               <ListChecks className="w-3.5 h-3.5 text-primary mt-0.5" />
               <span>
-                No provider is called — evaluation is purely firewall-side using
-                rule, semantic, and classifier engines.
+                No provider API calls are made during testing — evaluation runs
+                entirely within your LaroGuard instance at no additional cost.
               </span>
             </li>
           </>
@@ -263,8 +263,8 @@ function TestingDetails({ mode }: { mode: TestingMode }) {
             <li className="flex gap-2">
               <ListChecks className="w-3.5 h-3.5 text-primary mt-0.5" />
               <span>
-                Configure provider API keys, models, and firewall API key in the
-                same view used in production.
+                Use the same project and provider settings as your production
+                environment to get accurate, representative results.
               </span>
             </li>
           </>

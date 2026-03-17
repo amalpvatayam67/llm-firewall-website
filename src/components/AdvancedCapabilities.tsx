@@ -23,9 +23,9 @@ export function AdvancedCapabilities() {
             transition={{ delay: 0.1 }}
             className="text-foreground/70 text-lg"
           >
-            LaroGuard runs as a runtime proxy in front of both LLMs and
-            tools, with dedicated controls for tool invocations, alerting, SIEM
-            export, and AI-assisted rule creation via 6AI Tornado.
+            LaroGuard runs as a runtime security layer in front of both AI models and
+            the tools they can invoke, with dedicated controls for alerting, security event
+            export, and intelligent assistance via 6AI Tornado.
           </motion.p>
         </div>
 
@@ -59,8 +59,9 @@ export function AdvancedCapabilities() {
                 </div>
               </div>
               <p className="text-foreground/60">
-                Detect command injection, dangerous shell execution, file access,
-                and SQL injection in tool arguments before they run.
+                Review every AI tool invocation against your security policy before
+                it executes. Requests that do not meet your thresholds are blocked
+                before any action is taken on your infrastructure.
               </p>
             </div>
           </motion.div>
@@ -96,13 +97,13 @@ export function AdvancedCapabilities() {
               <div className="flex items-center gap-2 text-[11px] text-foreground/60">
                 <Share2 className="w-3.5 h-3.5" />
                 <span>
-                  Export firewall events to Webhook, Syslog, and Splunk HEC
-                  without blocking API responses.
+                  Security events are forwarded to your monitoring platform
+                  without adding latency to your application responses.
                 </span>
               </div>
               <div className="flex items-center gap-2 text-[11px] text-foreground/60">
                 <Network className="w-3.5 h-3.5" />
-                <span>Fan-out to multiple SIEM destinations from a single rule.</span>
+                <span>Multiple destinations can receive the same event stream simultaneously.</span>
               </div>
             </div>
           </motion.div>
@@ -127,19 +128,18 @@ export function AdvancedCapabilities() {
             <div className="space-y-3 text-xs text-foreground/70">
               <div className="rounded-xl bg-black/50 border border-white/10 p-3 space-y-2">
                 <p className="text-[11px] font-semibold text-emerald-300">
-                  Connected · Local Docker
+                  Connected · Active
                 </p>
                 <p className="text-[11px] text-foreground/60">
-                  Run Tornado next to the firewall or connect to an external
-                  cluster. Manage container lifecycle and API tokens directly from
-                  the dashboard.
+                  Deploy Tornado alongside LaroGuard or connect it remotely.
+                  Manage its integration and access tokens directly from the dashboard.
                 </p>
               </div>
               <div className="flex items-center gap-2 text-[11px] text-foreground/60">
                 <Cpu className="w-3.5 h-3.5" />
                 <span>
-                  Tornado proposes rules and explanations; enforcement and
-                  telemetry stay in the firewall runtime.
+                  Tornado provides intelligent analysis and recommendations;
+                  all enforcement decisions remain within the LaroGuard runtime.
                 </span>
               </div>
             </div>
@@ -158,31 +158,31 @@ export function AdvancedCapabilities() {
               <div>
                 <p className="text-sm font-semibold">Production-Ready Performance</p>
                 <p className="text-xs text-foreground/60">
-                  Dedicated thread pool keeps the event loop free under load.
+                  Built to stay fast under load.
                 </p>
               </div>
             </div>
             <div className="space-y-3 text-xs text-foreground/70">
               <p className="text-foreground/60">
-                CPU-intensive scanning — prompt analysis, PII detection, output scanning — runs on a
-                dedicated named thread pool, keeping the async event loop free for I/O. Observable
-                in the diagnostics dashboard under <span className="font-mono text-cyan-300">Security Executor</span>.
+                Security scanning runs in a dedicated processing pool, keeping
+                request handling responsive even under high traffic. Performance
+                metrics are visible in the diagnostics section of the dashboard.
               </p>
               <div className="rounded-xl bg-black/50 border border-white/10 p-3 space-y-2">
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="text-foreground/60 flex items-center gap-1">
-                    <Cpu className="w-3 h-3" /> Thread Pool
+                    <Cpu className="w-3 h-3" /> Scan Workers
                   </span>
-                  <span className="font-mono text-cyan-300">16 workers dedicated</span>
+                  <span className="font-mono text-cyan-300">High capacity</span>
                 </div>
                 <div className="h-1.5 rounded-full bg-black/50 overflow-hidden">
                   <div className="h-full w-full bg-gradient-to-r from-cyan-500 to-teal-400" />
                 </div>
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="text-foreground/60 flex items-center gap-1">
-                    <Zap className="w-3 h-3" /> Event Loop
+                    <Zap className="w-3 h-3" /> Request Handling
                   </span>
-                  <span className="font-mono text-emerald-300">Never blocked by scan work</span>
+                  <span className="font-mono text-emerald-300">Unaffected by scan load</span>
                 </div>
                 <div className="h-1.5 rounded-full bg-black/50 overflow-hidden">
                   <div className="h-full w-1/12 bg-emerald-400" />

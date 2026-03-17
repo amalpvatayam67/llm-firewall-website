@@ -28,22 +28,22 @@ function EyeShieldIcon(props: React.SVGProps<SVGSVGElement>) {
 const promptEngines = [
   {
     name: "Rule Engine",
-    description: "Regex & pattern rules for prompt injection, data exfiltration, and jailbreak variants.",
+    description: "Applies your configured detection rules to every incoming request before it is processed.",
     icon: ShieldAlert,
   },
   {
     name: "Prompt Attack Scanner",
-    description: "Curated prompt attack datasets and runtime rules for adversarial prompts.",
+    description: "Identifies known patterns of adversarial input designed to manipulate AI behaviour.",
     icon: Fingerprint,
   },
   {
     name: "Semantic Detector",
-    description: "Embedding-based similarity against known bad prompts and semantic risk patterns.",
+    description: "Evaluates the meaning and intent behind requests to surface threats that bypass surface-level rules.",
     icon: Brain,
   },
   {
     name: "AI Classifier",
-    description: "LLM-based classifier for nuanced prompt injection and policy violations.",
+    description: "Applies intelligent classification to catch subtle policy violations that pattern matching alone would miss.",
     icon: Brain,
   },
 ];
@@ -51,27 +51,27 @@ const promptEngines = [
 const outputEngines = [
   {
     name: "Output Scanner",
-    description: "Post-response scan for secrets, PII, and unsafe content.",
+    description: "Reviews every model response for sensitive content before it is returned to your application.",
     icon: ScanLine,
   },
   {
     name: "PII Guard",
-    description: "Bidirectional PII enforcement layer with detect, mask, and block modes. Runs on both input and output with per-project type filtering.",
+    description: "Detects personal information in both requests and responses and enforces your chosen action — log, redact, or block — per project.",
     icon: EyeShieldIcon,
   },
   {
     name: "Streaming Output Scanner",
-    description: "Sliding-window streaming redaction without buffering full responses.",
+    description: "Applies protection to streamed responses as they arrive, without waiting for the full output to complete.",
     icon: Radar,
   },
   {
     name: "Multimodal Scanner",
-    description: "Scans images and files submitted alongside prompts. Detects embedded text via OCR, EXIF metadata anomalies, and QR-encoded payloads.",
+    description: "Extends content inspection to images and files submitted alongside text, screening for embedded threats.",
     icon: Layers3,
   },
   {
     name: "RAG Detector",
-    description: "Detect poisoned or adversarial documents retrieved from vector databases.",
+    description: "Screens externally retrieved content before it is added to the AI context, blocking adversarial material at the source.",
     icon: Fingerprint,
   },
 ];
@@ -98,8 +98,8 @@ export function PipelineDiagram() {
             transition={{ delay: 0.1 }}
             className="text-foreground/70 text-lg"
           >
-            Every request flows through a multi-layer detection stack before any LLM
-            or tool is called, with rich telemetry exported to your SOC.
+            Every request is evaluated across multiple protection layers before reaching
+            your AI provider, with all decisions recorded and available to your team.
           </motion.p>
         </div>
 
@@ -161,31 +161,29 @@ function DetectionStack() {
               <div>
                 <p className="font-semibold">Chat Gateway</p>
                 <p className="text-foreground/60">
-                  <code className="text-xs bg-black/40 px-2 py-1 rounded border border-white/10">
-                    /v1/chat/completions
-                  </code>{" "}
-                  fronting OpenAI, Anthropic, Gemini, OpenRouter, Azure, and others.
+                  Your application routes AI requests through LaroGuard, which sits in front of
+                  all supported LLM providers without requiring any changes to your request format.
                 </p>
               </div>
               <div>
                 <p className="font-semibold">Tool Proxy</p>
                 <p className="text-foreground/60">
-                  HTTP tool invocations are intercepted, scored, and optionally blocked
-                  before hitting infrastructure.
+                  AI agent tool calls are reviewed and scored against your policy before
+                  any action is taken on your infrastructure.
                 </p>
               </div>
               <div>
                 <p className="font-semibold">Testing Surfaces</p>
                 <p className="text-foreground/60">
-                  Red Team Simulator and Streaming Output Scanner run against the same
-                  engines as production traffic.
+                  Validate your security policies against adversarial inputs using
+                  the same protection stack that runs in production.
                 </p>
               </div>
             </div>
 
             <div className="mt-auto pt-4 text-xs text-foreground/50 flex items-center gap-2">
               <ArrowRight className="w-4 h-4 text-primary" />
-              <span>Requests are normalized and enriched with metadata before analysis.</span>
+              <span>Every request is prepared and validated before the protection pipeline runs.</span>
             </div>
           </motion.div>
 
@@ -204,8 +202,8 @@ function DetectionStack() {
                     Context & Detection Stack
                   </p>
                   <p className="text-sm text-foreground/70">
-                    Lightweight context reconstruction feeds layered engines for
-                    deterministic and semantic analysis.
+                    Conversation context is tracked and fed into layered protection
+                    engines that work together to reach a decision on each request.
                   </p>
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full bg-black/40 border border-primary/30 px-3 py-1 text-xs text-primary">
@@ -222,8 +220,8 @@ function DetectionStack() {
                 <div className="text-xs md:text-sm">
                   <p className="font-semibold text-foreground">Context Resolver</p>
                   <p className="text-foreground/60">
-                    Reconstructs recent turns in-memory to catch multi-step prompt
-                    injection and jailbreak attempts without persisting chat logs.
+                    Tracks recent conversation turns to detect threats that span
+                    multiple messages, without storing sensitive content.
                   </p>
                 </div>
               </div>
@@ -296,11 +294,11 @@ function DetectionStack() {
                   Runtime Decisions
                 </p>
                 <p className="text-foreground/60">
-                  Combine engine scores into a single risk posture and enforce
+                  All protection signals are combined into one risk decision, enforcing your configured
                   <span className="text-emerald-400"> allow</span>,
                   <span className="text-amber-400"> warn</span>,
                   <span className="text-rose-400"> block</span>, or
-                  <span className="text-cyan-400"> redact</span> outcomes per project.
+                  <span className="text-cyan-400"> redact</span> outcome per project.
                 </p>
               </div>
               <div>
@@ -309,8 +307,8 @@ function DetectionStack() {
                   Providers & Tools
                 </p>
                 <p className="text-foreground/60">
-                  Safe traffic is forwarded to configured LLM providers and HTTP
-                  tools with unified latency and risk metrics.
+                  Approved requests are forwarded to your configured AI provider or
+                  tool endpoint, with performance metrics captured throughout.
                 </p>
               </div>
               <div>
@@ -319,9 +317,8 @@ function DetectionStack() {
                   Alerts & SIEM Export
                 </p>
                 <p className="text-foreground/60">
-                  All events are logged to the SOC dashboard, alert channels, and
-                  exported to Webhook, Syslog, or Splunk HEC for long-term
-                  analysis.
+                  Every decision is recorded in the dashboard and can be forwarded
+                  to your security monitoring platform in real time.
                 </p>
               </div>
             </div>
@@ -349,14 +346,14 @@ function DeploymentArchitecture() {
               Zero Config
             </span>
           </div>
-          <p className="text-xs text-foreground/60">Default (Memory State) — no external dependencies required.</p>
+          <p className="text-xs text-foreground/60">Default mode — works out of the box with no additional infrastructure.</p>
 
           {/* SVG diagram */}
           <svg viewBox="0 0 320 110" className="w-full" aria-label="Single-node deployment diagram">
             {/* Firewall box */}
             <rect x="10" y="30" width="110" height="50" rx="10" className="fill-primary/15 stroke-primary/50" strokeWidth="1.5" />
             <text x="65" y="51" textAnchor="middle" className="fill-current text-foreground" style={{fontSize: 10, fill: "rgba(255,255,255,0.85)", fontWeight: 600}}>LaroGuard</text>
-            <text x="65" y="66" textAnchor="middle" style={{fontSize: 8, fill: "rgba(255,255,255,0.45)"}}>in-memory state</text>
+            <text x="65" y="66" textAnchor="middle" style={{fontSize: 8, fill: "rgba(255,255,255,0.45)"}}>single node</text>
             {/* Arrow */}
             <line x1="120" y1="55" x2="195" y2="55" stroke="rgba(16,185,129,0.5)" strokeWidth="1.5" strokeDasharray="4 3" />
             <polygon points="195,51 205,55 195,59" fill="rgba(16,185,129,0.6)" />
@@ -376,7 +373,7 @@ function DeploymentArchitecture() {
               Opt-In
             </span>
           </div>
-          <p className="text-xs text-foreground/60">Distributed (Redis State) — shared counters and session cache across all replicas.</p>
+          <p className="text-xs text-foreground/60">Distributed mode — shared state keeps all nodes consistent as you scale.</p>
 
           <svg viewBox="0 0 340 140" className="w-full" aria-label="Multi-node deployment diagram">
             {/* 3 replica boxes */}
@@ -392,14 +389,14 @@ function DeploymentArchitecture() {
             <ellipse cx="168" cy="60" rx="22" ry="9" style={{fill:"rgba(34,211,238,0.15)", stroke:"rgba(34,211,238,0.5)", strokeWidth:1.5}} />
             <rect x="146" y="60" width="44" height="30" style={{fill:"rgba(34,211,238,0.1)", stroke:"rgba(34,211,238,0.5)", strokeWidth:1.5}} />
             <ellipse cx="168" cy="90" rx="22" ry="9" style={{fill:"rgba(34,211,238,0.15)", stroke:"rgba(34,211,238,0.5)", strokeWidth:1.5}} />
-            <text x="168" y="77" textAnchor="middle" style={{fontSize:8, fill:"rgba(34,211,238,0.9)", fontWeight:700}}>Redis</text>
+            <text x="168" y="77" textAnchor="middle" style={{fontSize:8, fill:"rgba(34,211,238,0.9)", fontWeight:700}}>State</text>
             {/* Arrow redis to provider */}
             <line x1="192" y1="75" x2="248" y2="75" stroke="rgba(99,102,241,0.5)" strokeWidth="1.5" strokeDasharray="4 3" />
             <polygon points="248,71 258,75 248,79" fill="rgba(99,102,241,0.6)" />
             {/* Provider */}
             <rect x="258" y="57" width="76" height="36" rx="8" style={{fill:"rgba(99,102,241,0.12)", stroke:"rgba(99,102,241,0.4)", strokeWidth:1.2}} />
             <text x="296" y="73" textAnchor="middle" style={{fontSize:8, fill:"rgba(255,255,255,0.85)", fontWeight:600}}>LLM Providers</text>
-            <text x="296" y="84" textAnchor="middle" style={{fontSize:7, fill:"rgba(255,255,255,0.45)"}}>shared routing</text>
+            <text x="296" y="84" textAnchor="middle" style={{fontSize:7, fill:"rgba(255,255,255,0.45)"}}>all providers</text>
           </svg>
         </div>
       </div>
@@ -408,23 +405,23 @@ function DeploymentArchitecture() {
       <div className="glass rounded-2xl border border-white/10 p-6 space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <p className="text-sm font-semibold text-foreground">Activation</p>
-          <p className="text-xs text-foreground/60 italic">Same binary, one env var — scale horizontally when you&apos;re ready.</p>
+          <p className="text-xs text-foreground/60 italic">Enable distributed mode when you are ready to scale — no code changes required.</p>
         </div>
         <pre className="bg-black/60 border border-white/10 rounded-xl p-4 font-mono text-[12px] text-emerald-300 overflow-x-auto">
-          <code>STATE_BACKEND=redis docker compose --profile distributed up</code>
+          <code>docker compose --profile distributed up -d</code>
         </pre>
         <div className="grid sm:grid-cols-3 gap-3 text-xs text-foreground/60 pt-1">
           <div className="flex gap-2 items-start">
             <Server className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
-            <span>Rate-limit counters shared across all replicas via Redis atomic ops.</span>
+            <span>Rate-limit counters stay consistent across all nodes, preventing bypass through replica switching.</span>
           </div>
           <div className="flex gap-2 items-start">
             <Database className="w-3.5 h-3.5 text-cyan-400 mt-0.5 shrink-0" />
-            <span>Session cache (Context Resolver) synchronized across nodes — no sticky sessions required.</span>
+            <span>Conversation context is shared across nodes so multi-turn protection works regardless of which node handles each request.</span>
           </div>
           <div className="flex gap-2 items-start">
             <ArrowRight className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
-            <span>Single-node users are completely unaffected — <code className="text-emerald-300">memory</code> remains the default.</span>
+            <span>Single-node deployments are unaffected — distributed mode is opt-in and requires no changes to your base setup.</span>
           </div>
         </div>
       </div>
