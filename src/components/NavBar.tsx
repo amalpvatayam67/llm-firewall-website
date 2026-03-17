@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Shield,
@@ -13,17 +13,41 @@ import {
   X,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSubscriberAuth } from '@/auth/SubscriberAuthContext';
+import BookingModal from '@/components/BookingModal';
 
-export function NavBar() {
+function NavBarInner() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const bookingParam = searchParams.get('booking');
   const { subscriber, isLoggedIn, loading, logout } = useSubscriberAuth();
+
+  // Only allow the booking modal on pages that are not subscriber auth routes
+  const isAuthPage = pathname.startsWith('/subscriber');
+
+  // Auto-open booking modal when returning from Google OAuth
+  useEffect(() => {
+    if (isAuthPage) return; // never open on login / register / profile pages
+    if (bookingParam === 'ready' || bookingParam === 'denied' || bookingParam === 'error') {
+      setBookingOpen(true);
+      // Clean the query param without a full navigation
+      const url = new URL(window.location.href);
+      url.searchParams.delete('booking');
+      window.history.replaceState({}, '', url.toString());
+    }
+  }, [bookingParam, isAuthPage]);
+
+  // Close booking modal if user navigates to an auth page
+  useEffect(() => {
+    if (isAuthPage) setBookingOpen(false);
+  }, [isAuthPage]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -62,6 +86,7 @@ export function NavBar() {
   const isHome = pathname === '/';
 
   return (
+    <>
     <header className={cn(
       'fixed inset-x-0 top-0 w-full z-50 transition-colors duration-300 border-b',
       scrolled || !isHome
@@ -156,12 +181,12 @@ export function NavBar() {
               >
                 Log in
               </Link>
-              <Link
-                href="/subscriber/register"
+              <button
+                onClick={() => setBookingOpen(true)}
                 className="h-9 px-4 inline-flex items-center justify-center rounded-md bg-primary text-background text-sm font-medium shadow transition-colors hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary"
               >
-                Get Started
-              </Link>
+                Book A Demo
+              </button>
             </>
           )}
         </div>
@@ -214,7 +239,7 @@ export function NavBar() {
               ) : (
                 <div className="flex flex-col gap-2 pt-1">
                   <Link href="/subscriber/login" className="h-11 flex items-center justify-center rounded-lg bg-surface border border-white/10 text-sm font-medium text-foreground/80 hover:bg-surface-hover transition-colors">Log in</Link>
-                  <Link href="/subscriber/register" className="h-11 flex items-center justify-center rounded-lg bg-primary text-background text-sm font-semibold hover:bg-primary-dark transition-colors">Get Started</Link>
+                  <button onClick={() => { setBookingOpen(true); setMobileOpen(false); }} className="h-11 flex items-center justify-center rounded-lg bg-primary text-background text-sm font-semibold hover:bg-primary-dark transition-colors">Book A Demo</button>
                 </div>
               )}
             </nav>
@@ -222,5 +247,20 @@ export function NavBar() {
         )}
       </AnimatePresence>
     </header>
+    {!isAuthPage && (
+      <BookingModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+      />
+    )}
+    </>
+  );
+}
+
+export function NavBar() {
+  return (
+    <Suspense fallback={null}>
+      <NavBarInner />
+    </Suspense>
   );
 }
