@@ -70,6 +70,28 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
     label: 'Support',
     items: [{ id: 'getting-help', label: 'Getting Help' }],
   },
+  {
+    label: 'SDK',
+    items: [
+      { id: 'sdk-overview', label: 'SDK Overview' },
+      { id: 'python-sdk-installation', label: 'Python — Installation' },
+      { id: 'python-sdk-quick-start', label: 'Python — Quick Start' },
+      { id: 'python-sdk-chat', label: 'Python — Chat' },
+      { id: 'python-sdk-streaming', label: 'Python — Streaming' },
+      { id: 'python-sdk-rag', label: 'Python — RAG' },
+      { id: 'python-sdk-tools', label: 'Python — Tool Proxy' },
+      { id: 'python-sdk-errors', label: 'Python — Error Handling' },
+      { id: 'python-sdk-ide', label: 'Python — IDE Autocompletion' },
+      { id: 'js-sdk-installation', label: 'JS/TS — Installation' },
+      { id: 'js-sdk-quick-start', label: 'JS/TS — Quick Start' },
+      { id: 'js-sdk-chat', label: 'JS/TS — Chat' },
+      { id: 'js-sdk-streaming', label: 'JS/TS — Streaming' },
+      { id: 'js-sdk-rag', label: 'JS/TS — RAG' },
+      { id: 'js-sdk-tools', label: 'JS/TS — Tool Proxy' },
+      { id: 'js-sdk-errors', label: 'JS/TS — Error Handling' },
+      { id: 'js-sdk-ide', label: 'JS/TS — IDE Autocompletion' },
+    ],
+  },
 ];
 
 interface DocsSidebarProps {

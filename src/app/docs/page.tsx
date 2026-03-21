@@ -26,6 +26,25 @@ import { NavigatingDashboard } from '@/components/docs/sections/NavigatingDashbo
 import { ProjectsApiKeys } from '@/components/docs/sections/ProjectsApiKeys';
 import { LogsAnalytics } from '@/components/docs/sections/LogsAnalytics';
 import { GettingHelp } from '@/components/docs/sections/GettingHelp';
+import {
+  SDKOverview,
+  PythonSDKInstallation,
+  PythonSDKQuickStart,
+  PythonSDKChat,
+  PythonSDKStreaming,
+  PythonSDKRAG,
+  PythonSDKTools,
+  PythonSDKErrors,
+  PythonSDKIDE,
+  JSSDKInstallation,
+  JSSDKQuickStart,
+  JSSDKChat,
+  JSSDKStreaming,
+  JSSDKRAG,
+  JSSDKTools,
+  JSSDKErrors,
+  JSSDKIde,
+} from '@/components/docs/sections/SDK';
 
 // Flat list of all section ids in document order
 const ALL_SECTION_IDS = SIDEBAR_SECTIONS.flatMap((s) => s.items.map((i) => i.id));
@@ -108,6 +127,23 @@ export default function DocsPage() {
             <ProjectsApiKeys />
             <LogsAnalytics />
             <GettingHelp />
+            <SDKOverview />
+            <PythonSDKInstallation />
+            <PythonSDKQuickStart />
+            <PythonSDKChat />
+            <PythonSDKStreaming />
+            <PythonSDKRAG />
+            <PythonSDKTools />
+            <PythonSDKErrors />
+            <PythonSDKIDE />
+            <JSSDKInstallation />
+            <JSSDKQuickStart />
+            <JSSDKChat />
+            <JSSDKStreaming />
+            <JSSDKRAG />
+            <JSSDKTools />
+            <JSSDKErrors />
+            <JSSDKIde />
           </div>
 
           {/* Footer */}
