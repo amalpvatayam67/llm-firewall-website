@@ -32,6 +32,7 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
     items: [
       { id: 'environment-setup', label: 'Environment Setup' },
       { id: 'policy-configuration', label: 'Policy Configuration' },
+      { id: 'network-inspection', label: 'Network Inspection' },
     ],
   },
   {
@@ -56,6 +57,8 @@ export const SIDEBAR_SECTIONS: SidebarSection[] = [
       { id: 'llm-providers', label: 'LLM Providers' },
       { id: 'siem-alerting', label: 'SIEM & Alerting' },
       { id: 'tool-proxy', label: 'Tool Proxy' },
+      { id: 'icap-integration', label: 'ICAP Integration' },
+      { id: 'forward-proxy', label: 'Forward Proxy' },
     ],
   },
   {

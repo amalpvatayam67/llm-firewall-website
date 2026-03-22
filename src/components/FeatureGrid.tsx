@@ -4,8 +4,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Shield, Server, Box, Fingerprint, Activity, Key, Database, Bell,
-  BringToFront, Flame, Settings, PlayCircle, GitMerge, Network,
-  ShieldAlert, Lock, Eye, BarChart3, AlertTriangle, ChevronRight,
+  BringToFront, Flame, Settings, PlayCircle, GitMerge, Network, Globe,
+  ShieldAlert, Lock, Eye, BarChart3, AlertTriangle, ChevronRight, Layers, Filter,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FeatureCard } from './FeatureCard';
@@ -163,10 +163,34 @@ const capabilityGroups = [
         title: 'Horizontal Scaling',
         description:
           'Deploy as a single node or scale across multiple instances as your traffic grows. Shared state is handled automatically so all replicas enforce the same policies consistently.',
-        icon: Network,
+        icon: Layers,
         color: 'from-cyan-400 to-teal-500',
         delay: 0.15,
         badge: 'Scale',
+      },
+    ],
+  },
+  {
+    category: 'Network-Layer Protection',
+    categoryColor: 'text-sky-400',
+    categoryBorder: 'border-sky-400/20',
+    categoryBg: 'bg-sky-400/8',
+    features: [
+      {
+        title: 'ICAP Content Inspection',
+        description:
+          'Connects directly to your existing network proxy or security appliance via the ICAP protocol. Inspects both outbound requests and inbound model responses at the network layer without requiring any changes to your applications.',
+        icon: Filter,
+        color: 'from-sky-400 to-cyan-500',
+        delay: 0.05,
+      },
+      {
+        title: 'Transparent Forward Proxy',
+        description:
+          'Intercepts outbound HTTP and HTTPS traffic at the network level. Route traffic from any tool, agent, or server through LaroGaurd by setting a single environment variable — no SDK integration required.',
+        icon: Globe,
+        color: 'from-indigo-400 to-sky-500',
+        delay: 0.1,
       },
     ],
   },

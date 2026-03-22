@@ -13,6 +13,7 @@ import { DockerDeployment } from '@/components/docs/sections/DockerDeployment';
 import { ProductionChecklist } from '@/components/docs/sections/ProductionChecklist';
 import { EnvironmentSetup } from '@/components/docs/sections/EnvironmentSetup';
 import { PolicyConfiguration } from '@/components/docs/sections/PolicyConfiguration';
+import { NetworkInspection } from '@/components/docs/sections/NetworkInspection';
 import { ConnectingYourApp } from '@/components/docs/sections/ConnectingYourApp';
 import { SendingRequests } from '@/components/docs/sections/SendingRequests';
 import { UnderstandingResponses } from '@/components/docs/sections/UnderstandingResponses';
@@ -22,6 +23,8 @@ import { TornadoEngine } from '@/components/docs/sections/TornadoEngine';
 import { LLMProviders } from '@/components/docs/sections/LLMProviders';
 import { SiemAlerting } from '@/components/docs/sections/SiemAlerting';
 import { ToolProxy } from '@/components/docs/sections/ToolProxy';
+import { IcapIntegration } from '@/components/docs/sections/IcapIntegration';
+import { ForwardProxy } from '@/components/docs/sections/ForwardProxy';
 import { NavigatingDashboard } from '@/components/docs/sections/NavigatingDashboard';
 import { ProjectsApiKeys } from '@/components/docs/sections/ProjectsApiKeys';
 import { LogsAnalytics } from '@/components/docs/sections/LogsAnalytics';
@@ -114,6 +117,7 @@ export default function DocsPage() {
             <ProductionChecklist />
             <EnvironmentSetup />
             <PolicyConfiguration />
+            <NetworkInspection />
             <ConnectingYourApp />
             <SendingRequests />
             <UnderstandingResponses />
@@ -123,6 +127,8 @@ export default function DocsPage() {
             <LLMProviders />
             <SiemAlerting />
             <ToolProxy />
+            <IcapIntegration />
+            <ForwardProxy />
             <NavigatingDashboard />
             <ProjectsApiKeys />
             <LogsAnalytics />
