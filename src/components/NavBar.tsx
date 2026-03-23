@@ -111,6 +111,7 @@ function NavBarInner() {
           <Link href="/#features" className="hover:text-primary transition-colors">Features</Link>
           <Link href="/#architecture" className="hover:text-primary transition-colors">Pipeline</Link>
           <Link href="/#dashboard" className="hover:text-primary transition-colors">Dashboard</Link>
+          <Link href="/#compliance" className="hover:text-primary transition-colors">Compliance</Link>
           <Link
             href="/pricing"
             className={cn('hover:text-primary transition-colors', pathname === '/pricing' && 'text-primary')}
@@ -215,6 +216,7 @@ function NavBarInner() {
               <Link href="/#features" className="py-2.5 px-3 rounded-lg text-foreground/70 hover:text-primary hover:bg-surface transition-colors">Features</Link>
               <Link href="/#architecture" className="py-2.5 px-3 rounded-lg text-foreground/70 hover:text-primary hover:bg-surface transition-colors">Pipeline</Link>
               <Link href="/#dashboard" className="py-2.5 px-3 rounded-lg text-foreground/70 hover:text-primary hover:bg-surface transition-colors">Dashboard</Link>
+              <Link href="/#compliance" className="py-2.5 px-3 rounded-lg text-foreground/70 hover:text-primary hover:bg-surface transition-colors">Compliance</Link>
               <Link href="/pricing" className="py-2.5 px-3 rounded-lg text-foreground/70 hover:text-primary hover:bg-surface transition-colors">Pricing</Link>
               <Link href="/docs" className="py-2.5 px-3 rounded-lg text-foreground/70 hover:text-primary hover:bg-surface transition-colors">Docs</Link>
               <div className="h-px bg-white/8 my-2" />

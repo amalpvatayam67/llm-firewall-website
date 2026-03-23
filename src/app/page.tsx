@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { PipelineDiagram } from "@/components/PipelineDiagram";
 import { DashboardShowcase } from "@/components/DashboardShowcase";
+import { ComplianceSection } from "@/components/ComplianceSection";
 import { TestingShowcase } from "@/components/TestingShowcase";
 import { AdvancedCapabilities } from "@/components/AdvancedCapabilities";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <FeatureGrid />
       <PipelineDiagram />
       <DashboardShowcase />
+      <ComplianceSection />
       <TestingShowcase />
       <AdvancedCapabilities />
     </main>
